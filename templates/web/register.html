@@ -1,0 +1,65 @@
+{% extends  "web/temp.html"%}
+{% block content %}
+<div class="row">
+    <div class="col-2">
+  </div>
+    <div class="col-8">
+   
+
+        <div class="card mt-5">
+         {%if messages %}
+      {%for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong> {{message}}</strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  
+        
+            {%endfor%}
+            {%endif%}
+          <div class="card-header">
+            User registration form
+          
+            
+          </div>
+            <div class="card-body">
+                <form action="{%url 'register'%}" method="post">
+                  {%csrf_token %}
+                  <div class="row">
+                    <div class="col-4">
+                      <label for="">First name</label>
+                      <input type="text" class="form-control" name="fname">
+                    </div>
+                    <div class="col-4">
+                      <label for="">Middle  name</label>
+                      <input type="text" class="form-control" name="mname">
+                    </div>
+                    <div class="col-4">
+                      <label for="">Last  name</label>
+                      <input type="text" class="form-control" name="lname">
+                    </div>
+                 
+                    <div class="col-4">
+                      <label for="">username</label>
+                      <input type="text" class="form-control" name="username">
+                    </div>
+                  </div>
+                    <div class="mb-1">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      
+                    <div class="mb-1">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+            
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+{%endblock content%}
