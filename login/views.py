@@ -1,23 +1,25 @@
-import imp
-from pickle import NONE
-from traceback import print_tb
-from click import echo
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth import login,logout,authenticate
+
 
 def signin(request):
     if request.method =="POST" :
         username = request.POST["uname"]
         password = request.POST["pass"]
-        print(username)
+      
         user = authenticate(request,username=username,password=password)
-
-        if user is not None and user.is_student:
-            users = user.is_student
-            print(users)
+        
+        if user is not None and user.is_acc:
             login(request,user)
-            return redirect("home")
+            print(user.username)
+            return redirect('account')
+        if user is not None and user.is_hm:
+            login(request,user)
+            return redirect("headmaster")
     return render(request,"registration/login.html")
+    
+def signout(request):
+        logout(request)
 
 
