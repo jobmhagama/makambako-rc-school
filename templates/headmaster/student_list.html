@@ -1,7 +1,6 @@
-{% extends 'accountant/layout.html'%}
+{% extends 'headmaster/layout.html'%}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
-  
 
 <div class="row">
     <div class="col-12">
@@ -35,20 +34,20 @@
                                 {{ student.First_Name }}
                             </td>
                             <td>
-                                <a href="{% url 'student_fee_detail' student.id %}" class="btn btn-info"> Fee</a>
+                                <a href="{% url 'Student_fee_detail' student.id %}" class="btn btn-info">Fee</a>
                             </td>
                             <td>
-                                <a href="{% url 'student_food_detail' student.id %}" class="btn btn-primary">Food</a>
+                                <a href="{% url 'Student_food_detail' student.id %}" class="btn btn-primary">Food</a>
 
                             </td>
                             <td>
-                                <a href="{% url 'student_uniform_detail' student.id %}" class="btn btn-secondary">Uniform</a>
+                                <a href="{% url 'Student_uniform_detail' student.id %}" class="btn btn-secondary">Uniform</a>
                             </td>
                             <td>
-                                <a href="{% url 'student_transport_details' student.id %}" class="btn btn-secondary">Transport</a>
+                                <a href="{% url 'Student_transport_details' student.id %}" class="btn btn-secondary">Transport</a>
                             </td>
                             <td>
-                                <a href="{% url 'student_transport_details' student.id %}" class="btn btn-success">Update</a>
+                                <a href="{% url 'Student_transport_details' student.id %}" class="btn btn-success">Update</a>
                             </td>
                         </tr>
 

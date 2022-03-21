@@ -5,7 +5,7 @@ from django.urls import path,include
 
 urlpatterns = [
 
-  path("signin/",views.signin),
+  path("signin/",views.signin,name="signin"),
   path("signout/",views.signout,name="signout"),
   #After a successfullly login users will be directed towards their account from here
   path('account/', include("Accountant.urls")),

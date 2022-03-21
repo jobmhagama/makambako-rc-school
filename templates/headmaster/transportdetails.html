@@ -1,0 +1,68 @@
+{% extends 'headmaster/layout.html'%}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+       
+            <div class="card-header bg-secondary text-white">
+                {%for Student in student%} 
+             TRANSPORT  PAYMENTS FOR:  {{Student.First_Name}} {{Student.Last_Name}}
+         {%endfor%}
+            </div>
+            <div class="card-body">
+                <table id="table_id" class="display">
+                    <thead>
+                        <tr>
+                            <th>PID</th>
+                            <th>CNO</th>
+                            <th>payment for</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Date Paid</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                     {% for payment in payments%}
+                        <tr>
+                            <td>
+                
+                                {{ payment.id}}
+                            </td>
+                            <td>
+                                {{ payment.Cno}}
+                            </td>
+                            <td>
+                                {{ payment.month}}
+                            </td>
+                            <td>
+                                {{ payment.amount}}
+                            </td>
+                             <td>
+                                {{ payment.description}}
+                            </td>
+                            <td>
+                                {{ payment.datepaid}}
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(() => {
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        })
+    });
+
+</script>
+{% endblock content%}

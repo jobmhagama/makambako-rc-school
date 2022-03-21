@@ -1,7 +1,4 @@
-
-{% extends 'accountant/layout.html'%}
-
-
+{% extends 'headmaster/layout.html'%}
 {% if request.user.is_authenticated %}
 {% block content %}
 {% load crispy_forms_tags %}
@@ -9,7 +6,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="card">
-            {% if messages %}
+  {% if messages %}
    {%for message in messages%}
    <div class="alert alert-warning alert-dismissible fade show" role="alert">
     {{message}}
@@ -18,12 +15,13 @@
   
    {%endfor%}
    {% endif %}
-  <div class="card-header bg-secondary text-white">REGISTER NEW STUDENT</div>
+   <div class="card-header bg-secondary text-white">MAKE FEE PAYMENTS FOR STUDENTS</div>
             <div class="card-body">
                 <form method="POST" action="#">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <button>Register Student</button>
+                    <br>
+                    <button class="btn btn-primary">Record payment</button>
                 </form>
             </div>
         </div>
@@ -35,7 +33,5 @@
 {% endblock content%}
 
 {% else %}
-
 <h1>OOOOOPS !!!!!!!!!!!!!!!!!!</h1>
-
 {% endif %}

@@ -17,9 +17,11 @@ def signin(request):
         if user is not None and user.is_hm:
             login(request,user)
             return redirect("headmaster")
+        else:
+            messages.success(request,"invalid user name or password")
     return render(request,"registration/login.html")
     
 def signout(request):
         logout(request)
-
+        return render(request,"registration/login.html")
 

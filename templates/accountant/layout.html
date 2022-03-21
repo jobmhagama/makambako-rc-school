@@ -16,15 +16,10 @@
 	<link rel="stylesheet" href="{% static '/bt/css/bootstrap.min.css'%}">
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
 	<title>RC SCHOOL</title>
-	
-
-  
-	
-	
-	<script type="text/javascript" charset="utf8" src="{%static '/DataTables/datatables.js'%}"></script>
+	<script type="text/javascript" charset="utf8" src="{%static 'DataTables/datatables.'%}"></script>
 	<link href="{% static '/demo' %}" rel="stylesheet">
+	<link href="{% static 'DataTables/datatables.css' %}" rel="stylesheet">
 	<link href="{% static '/panel/static/css/app.css' %}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -43,7 +38,7 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="/pe">
+						<a class="sidebar-link" href="{% url 'account'%}">
 							<i class="align-middle" data-feather="sliders"></i> <span
 								class="align-middle">Dashboard</span>
 						</a>
@@ -51,35 +46,56 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'newstudent' %}">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Student
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">
 								Registration</span>
 						</a>
 					</li>
-
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{% url 'student_fee' %}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Fee Payment
+								</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{% url 'student_uniform' %}">
+							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Uniform Payment
+								</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{% url 'student_transport' %}">
+							<i class="align-middle" data-feather="user"></i><span class="align-middle">Transport Payment
+								</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{% url 'food_fee' %}">
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Food Payment</span>
+						</a>
+					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'student_list' %}">
-							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Find
+							<i class="align-middle" data-feather="search"></i> <span class="align-middle">Find
 								student</span>
 						</a>
 					</li>
+					<li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="/suppliers">
-							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Supplier
-								Details </span>
-						</a>
+						
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="/clossedtenders">
-							<i class="align-middle" data-feather="book"></i> <span class="align-middle"> Clossed Tenders
-							</span>
+					<div class="dropdown">
+						<a class="sidebar-link btn btn-primary dropdown-toggle dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+						  Payment Section
 						</a>
-					</li>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+						  <li></a></li>
+						  <li><a class="dropdown-item" href="#">Another action</a></li>
+						  <li><a class="dropdown-item" href="#">Something else here</a></li>
+						</ul>
+					  </div>
 
-
-
-
+				
+			
 				</ul>
 
 
@@ -250,7 +266,7 @@
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
 								data-bs-toggle="dropdown">
 								<img src="panel/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1"
-									alt="Charles Hall" /> <span class="text-dark">{{request.user}}</span>
+									alt="Charles Hall"/> <span class="text-dark">{{request.user}}</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i>
@@ -278,6 +294,10 @@
 		</div>
 	
 		<script src="{% static 'panel/static/js/app.js'%}"></script>
+		<script src="{% static 'DataTables/datatables.js'%}"></script>
+	
+		
+		</script>
 		<script>
 			document.addEventListener("DOMContentLoaded", function () {
 				var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

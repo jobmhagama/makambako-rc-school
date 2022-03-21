@@ -114,7 +114,16 @@
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
+            {%if messages%}
+            {%for message in messages%}
+          
+              <div class="alert alert-danger" role="alert">
+                {{message}}
+              </div>
+            {%endfor%}
+            {%endif%}
             <button type="submit" class="btn btn-primary">Submit</button>
+         
           </form>
 
     </div>
