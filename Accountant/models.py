@@ -55,11 +55,13 @@ class StudentFoodFee(models.Model):
      date=models.DateField(auto_now_add=True)
      description=models.TextField(max_length=2000)
      amount=models.IntegerField()
-     totalAmount=models.IntegerField()
+     totalAmount=models.IntegerField(null=True)
      def __str__(self) -> str:
          return  self.student
      def get_absolute_url(self):
             return reverse("food_fee")
+
+            
 
 class StudentUniformFee(models.Model):
      student =models.ForeignKey("student",on_delete=models.CASCADE)

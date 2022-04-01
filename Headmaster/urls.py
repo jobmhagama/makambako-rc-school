@@ -2,8 +2,8 @@ from django.urls import path,include
 from . import views
 
 urlpatterns = [
-     path("",views.HeadmasterHome.as_view(),name="headmaster"),
-     path("headmaster_dashboard",views.HeadmasterDashboard.as_view(),name="headmaster_dashbaord"),
+
+     path("",views.HeadmasterDashboard.as_view(),name="headmaster_dashbaord"),
      path("Newstudent/",views.CreateStudent.as_view(),name="Newstudent"),
      path("students/",views.ListStudent.as_view(),name="Student_list"),
      path("studentfee/",views.CreateStudentFee.as_view(),name="Student_fee"),

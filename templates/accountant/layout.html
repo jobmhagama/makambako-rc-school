@@ -16,12 +16,15 @@
 	<link rel="stylesheet" href="{% static '/bt/css/bootstrap.min.css'%}">
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	
 	<title>RC SCHOOL</title>
 	<script type="text/javascript" charset="utf8" src="{%static 'DataTables/datatables.'%}"></script>
 	<link href="{% static '/demo' %}" rel="stylesheet">
 	<link href="{% static 'DataTables/datatables.css' %}" rel="stylesheet">
 	<link href="{% static '/panel/static/css/app.css' %}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'bt/demo.css' %}"> 
 </head>
 
 <body>
@@ -46,53 +49,43 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'newstudent' %}">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">
 								Registration</span>
 						</a>
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'student_fee' %}">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Fee Payment
+							<i class="align-middle" data-feather="edit"></i> <span class="align-middle">fee Payment
 								</span>
 						</a>
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'student_uniform' %}">
-							<i class="align-middle" data-feather="user"></i> <span class="align-middle">Uniform Payment
+							<i class="align-middle" data-feather="edit"></i> <span class="align-middle">Uniform Payment
 								</span>
 						</a>
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'student_transport' %}">
-							<i class="align-middle" data-feather="user"></i><span class="align-middle">Transport Payment
+							<i class="align-middle" data-feather="edit"></i><span class="align-middle">transport Payment
 								</span>
 						</a>
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'food_fee' %}">
-							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Food Payment</span>
+							<i class="align-middle" data-feather="edit"></i> <span class="align-middle">food payment</span>
 						</a>
 					</li>
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{% url 'student_list' %}">
-							<i class="align-middle" data-feather="search"></i> <span class="align-middle">Find
-								student</span>
+							<i class="align-middle" data-feather="users"></i> <span class="align-middle">Student Records</span>
 						</a>
 					</li>
 					<li>
 
 						
 					</li>
-					<div class="dropdown">
-						<a class="sidebar-link btn btn-primary dropdown-toggle dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-						  Payment Section
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-						  <li></a></li>
-						  <li><a class="dropdown-item" href="#">Another action</a></li>
-						  <li><a class="dropdown-item" href="#">Something else here</a></li>
-						</ul>
-					  </div>
+					
 
 				
 			

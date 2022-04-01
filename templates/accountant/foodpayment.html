@@ -18,7 +18,7 @@
    {% endif %}
    <div class="card-header bg-secondary text-white">MAKE FOOD PAYMENTS FOR STUDENTS</div>
             <div class="card-body">
-                <form method="POST" action="#">
+                <form method="POST" action="{% url 'food_fee'%}">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <br>

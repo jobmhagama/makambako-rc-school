@@ -1,5 +1,51 @@
+
 {% extends 'accountant/layout.html'%}
 {% block content %}
-<h1>Block content will be displayed here</h1>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div>
+    <div class="row">
+        <div class="col-3">
+           <div class="card">
+               <div class="card-header">
+                <canvas id="myChart"></canvas>
+               </div>
+           </div>
+        </div>
+    </div>
+   
+  </div>
+  <script>
+    const labels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: ['rgb(255, 99, 132)','blue','green',],
+        borderColor: ['rgb(255, 99, 132)','yellow'],
+        data: [0, 10, 5, 2, 20, 30, 45],
+      }]
+    };
+  
+    const config = {
+      type: 'pie',
+      data: data,
+      options: {}
+    };
+  </script>
+   <script>
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
+
 
 {% endblock content%}

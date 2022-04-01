@@ -1,12 +1,13 @@
 {% extends 'accountant/layout.html'%}
 {% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   
 
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header bg-secondary text-white">SEARCH STUDENT DETAILS FROM HERE</div>
+            <div class="card-header bg-secondary text-white">   Report</div>
             <div class="card-body">
              
                 <table id="table_id" class="display">
@@ -16,10 +17,7 @@
                             <th>Last Name</th>
                             <th>Parent Name</th>
                             <th>Action1</th>
-                            <th>Action2</th>
-                            <th>Action3</th>
-                            <th>Action4</th>
-                            <th>Action5</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -35,21 +33,27 @@
                                 {{ student.First_Name }}
                             </td>
                             <td>
-                                <a href="{% url 'student_fee_detail' student.id %}" class="btn btn-info"> Fee</a>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="align-middle" data-feather="eye">
+                                            
+                                        </i> <span>Actions</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a href="#" class="dropdown-item">Student items</a></li>
+                                        <li>
+                                            <a class="dropdown-item btn btn-primary " href="{% url 'student_food_detail' student.id %}" >Food</a>
+                                        </li>
+                                        <li><a href="{% url 'student_uniform_detail' student.id %}" class="dropdown-item  btn btn-secondary">Uniform</a></li>                                      <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a href="{% url 'student_transport_details' student.id %}" class="dropdown-item btn btn-secondary">Transport</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                      <li><a class="dropdown-item btn btn-success" href="{% url 'student_transport_details' student.id %}" >Update</a></li>
+                                    </ul>
+                                  </div>
                             </td>
-                            <td>
-                                <a href="{% url 'student_food_detail' student.id %}" class="btn btn-primary">Food</a>
-
-                            </td>
-                            <td>
-                                <a href="{% url 'student_uniform_detail' student.id %}" class="btn btn-secondary">Uniform</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'student_transport_details' student.id %}" class="btn btn-secondary">Transport</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'student_transport_details' student.id %}" class="btn btn-success">Update</a>
-                            </td>
+                           
+                           
                         </tr>
 
                         {%endfor%}
