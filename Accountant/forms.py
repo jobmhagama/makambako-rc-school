@@ -7,11 +7,6 @@ from signal import raise_signal
 from django import forms
 from .models import *
 
-class CreateStudentForm(forms.ModelForm):
-    class Meta:
-        model=Student
-        fields="__all__"
-
 class StudentFoodForm(forms.ModelForm):
     class Meta:
         model=StudentFoodFee
@@ -76,8 +71,8 @@ class StudentUniformForm(forms.ModelForm):
     
 class StudentFeeForm(forms.ModelForm):
     class Meta:
-        model=StudentFoodFee
+        model=StudentFee
         fields="__all__"
     def clean(self):
-        data=super(self).clean()
+        data=super().clean()
 

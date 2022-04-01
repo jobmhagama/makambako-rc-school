@@ -15,10 +15,7 @@
                             <th>Last Name</th>
                             <th>Parent Name</th>
                             <th>Action1</th>
-                            <th>Action2</th>
-                            <th>Action3</th>
-                            <th>Action4</th>
-                            <th>Action5</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -28,27 +25,36 @@
                                 {{ student.First_Name }}
                             </td>
                             <td>
-                                {{ student.First_Name }}
+                                {{ student.Middle_Name }}
                             </td>
                             <td>
-                                {{ student.First_Name }}
+                                {{ student.Last_Name }}
                             </td>
                             <td>
-                                <a href="{% url 'Student_fee_detail' student.id %}" class="btn btn-info">Fee</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'Student_food_detail' student.id %}" class="btn btn-primary">Food</a>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="align-middle" data-feather="eye">
+            
+                                        </i> <span>Actions</span>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a href="#" class="dropdown-item">Student items</a></li>
+                                        <li>
+                                            <a class=" dropdown-item" href="{% url 'Student_fee_detail' student.id %}">Fee</a>
+                                        </li>
+                                        <li>
+                                            <a class=" dropdown-item" href="{% url 'Student_food_detail' student.id %}">Food</a>
+                                        </li>
+                                        <li><a href="{% url 'Student_uniform_detail' student.id %}" class="dropdown-item  ">Uniform</a></li>                              
+                                        
+                                        <li><a href="{% url 'Student_transport_details' student.id %}" class="dropdown-item ">Transport</a></li>
 
+                                      <li><a class="dropdown-item btn btn-success" href="{% url 'Student_transport_details' student.id %}" >Update</a></li>
+                                    </ul>
+                                  </div>
                             </td>
-                            <td>
-                                <a href="{% url 'Student_uniform_detail' student.id %}" class="btn btn-secondary">Uniform</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'Student_transport_details' student.id %}" class="btn btn-secondary">Transport</a>
-                            </td>
-                            <td>
-                                <a href="{% url 'Student_transport_details' student.id %}" class="btn btn-success">Update</a>
-                            </td>
+                           
+                           
                         </tr>
 
                         {%endfor%}

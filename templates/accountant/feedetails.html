@@ -9,7 +9,7 @@
        
             <div class="card-header bg-secondary text-white">
                 {%for Student in student%} 
-             FEE  PAYMENTS FOR:  {{Student.First_Name}} {{Student.Last_Name}}
+             FEE  PAYMENTS FOR:  <b><i>{{Student.First_Name.upper}} {{Student.Last_Name.upper}}</i></b>
          {%endfor%}
             </div>
             <div class="card-body">
@@ -22,7 +22,7 @@
                             <th>Date paid</th>
                             <th>Year</th>
                             <th>Description</th>
-                             <th></th>
+                             
                         </tr>
                     </thead>
                     <tbody>

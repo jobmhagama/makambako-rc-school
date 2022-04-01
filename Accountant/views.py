@@ -8,20 +8,14 @@ from django.shortcuts import render
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import TemplateView,CreateView,ListView,TemplateView
 from django.views.generic.detail import DetailView
-from .models import Student,StudentFee,StudentFoodFee,StudentFoodFee,StudentUniformFee,StudentTransportFee
+from .models import StudentFee,StudentFoodFee,StudentFoodFee,StudentUniformFee,StudentTransportFee
+from Headmaster.models import Student
 ##################Import forms
 from .forms import *
 
 
 class AccountantHome(TemplateView):
         template_name="accountant/home.html"
-
-
-class CreateStudent(SuccessMessageMixin,CreateView):
-        model=Student
-        form_class= CreateStudentForm
-        template_name="accountant/student_register.html"
-        succes_message="New student has been created successfully"
 
 
      
@@ -35,6 +29,7 @@ class CreateStudentFee(SuccessMessageMixin,CreateView):
         template_name="accountant/feePayment.html"
         model=StudentFee
         form_class=StudentFeeForm
+
         success_message="Student fee was paid successfully"
 
 class CreateFoodFee(SuccessMessageMixin,CreateView):

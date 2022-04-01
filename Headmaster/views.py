@@ -9,11 +9,11 @@ from django.shortcuts import render
 from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import TemplateView,CreateView,ListView,TemplateView
 from django.views.generic.detail import DetailView
-from Accountant.models import Student,StudentFee,StudentFoodFee,StudentFoodFee,StudentUniformFee,StudentTransportFee
-
+from Accountant.models import StudentFee,StudentFoodFee,StudentFoodFee,StudentUniformFee,StudentTransportFee
+from .models import Student
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from. forms import *
 #######Decoration for preventing un authenticated user to login without permmision
 
 @method_decorator(login_required, name='dispatch')
@@ -108,9 +108,16 @@ class TransportDetailView(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class HeadmasterDashboard(TemplateView):
         template_name="headmaster/dashboard.html"
-   
+        def get_context_data(self, **kwargs):
+            context=super().get_context_data(**kwargs)
+            students=Student.objects.all().count()
+            context["registered"]=students
+            return context
 
-# class PaymentDetails(TemplateView):
-#         model= StudentFee
-        
+@method_decorator(login_required, name='dispatch')
+class CreateStudent(SuccessMessageMixin,CreateView):
+        model=Student
+        form_class= CreateStudentForm
+        template_name="headmaster/student_register.html"
+        succes_message="new student has been created successfully"
 
